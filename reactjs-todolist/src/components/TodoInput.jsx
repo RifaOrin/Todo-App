@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function TodoInput(props) {
-  const { handleAddTodos } = props;
+  //   const { addTodos } = props; // can do it by desturcturing method too then u dont have to write props.addTodos
   const [todoValue, setTodoValue] = useState("");
   return (
     <header>
@@ -14,7 +14,7 @@ export default function TodoInput(props) {
       ></input>
       <button
         onClick={() => {
-          handleAddTodos(todoValue);
+          props.addTodos(todoValue);
           setTodoValue("");
         }}
       >

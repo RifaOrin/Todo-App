@@ -5,13 +5,21 @@ import TodoList from "./components/TodoList";
 function App() {
   const [todos, setTodos] = useState([]);
   function handleAddTodos(newTodo) {
-    const newTodoList = [...todos, newTodo];
-    setTodos(newTodoList);
+    setTodos((prevTodos) => {
+      return [...prevTodos, newTodo];
+    });
+  }
+  function deleteTodo(id) {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo, index) => {
+        return index !== id;
+      });
+    });
   }
   return (
     <>
-      <TodoInput handleAddTodos={handleAddTodos} />
-      <TodoList todos={todos} />
+      <TodoInput addTodos={handleAddTodos} />
+      <TodoList todos={todos} onDelete={deleteTodo} />
     </>
   );
 }
