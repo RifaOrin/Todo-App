@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React from "react";
 
 export default function TodoInput(props) {
-  //   const { addTodos } = props; // can do it by desturcturing method too then u dont have to write props.addTodos
-  const [todoValue, setTodoValue] = useState("");
+  const { todoValue, setTodoValue } = props; // can do it by desturcturing method too then u dont have to write props.addTodos
+
   return (
     <header>
       <input
